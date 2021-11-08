@@ -10,7 +10,7 @@ from random import randint, choice
 
 
 def f():
-    return None
+    return True
 
 
 if __name__ == "__main__":
