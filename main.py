@@ -159,7 +159,7 @@ def menu():
             exit(1)
         generator(soubor, minvet, maxvet)
     elif cinnost == 5:
-        pocitadlo(soubor)
+        pocitacka(soubor)
     else:
         exit(0)
 
