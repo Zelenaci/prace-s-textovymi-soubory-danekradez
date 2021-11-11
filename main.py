@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 ############################################################################
 # Soubor:  main.py
-# Datum:
-# Autor:
+# Datum: 12. 11. 2021
+# Autor: Ondřej Závodský
 ############################################################################
 from random import randint, choice
 
