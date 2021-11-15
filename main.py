@@ -6,6 +6,58 @@
 ############################################################################
 from random import randint, choice
 
+def menu():
+    soubor = input("Poprosím název souboru: ")
+    print("""
+    1) - převod na malá písmena
+    2) - převod na velké písmena
+    3) - změna znaku
+    4) - generátor nádhodného textu
+    5) - počitadlo písmen
+    Esc - Konec
+    """)
+    
+    try:
+        cinnost = int(input("Napiš co chce udělat: "))
+    except:
+        print("Tohle nepůjde :( !")
+        exit(1)
+    
+    if cinnost == 1:
+        zmenseni(soubor)
+    elif cinnost == 2:
+        zvetseni(soubor)
+    elif cinnost == 3:
+        znakA = input("Zadej znak který chceš změnit: ")
+        znakB = input(f"Zadej znak na který se bude {znakA} měnit: ")
+        if znakA == "" or znakB == "":
+            nahrada(soubor)
+        else:
+            nahrada(soubor, znakA , znakB)
+    elif cinnost == 4:
+        try:
+            minvet = int(input("Minimální počet vět: "))
+            maxvet = int(input("Zadej Maximální počet vět: "))
+        except:
+            print("Budeš muset zadat celé číslo jinak to nepujde")
+            exit(1)
+        generator(soubor, minvet, maxvet)
+    elif cinnost == 5:
+        pocitacka(soubor)
+    else:
+        exit(0)
+
+while True:
+    menu()
+    try:
+        pokracovat = int(input("Chceš pokračovat dál?(1/0): "))
+    except:
+        break
+    if pokracovat == 1:
+        menu()
+    else:
+        break 
+
 def pocitacka(soubor):
     try:
         f = open(soubor, "r")
@@ -102,74 +154,8 @@ def zmenseni(soubor):
     f.close()
     fB.close()
 
-def zvetseni(soubor):
-    try:
-        f = open(soubor, "r")
-    except FileNotFoundError as e:
-        print(f"Smůla. {e.filename}")
-        exit(1)
-    
-    soubor2 = soubor.split(".")[0]
-    fB = open(f"{soubor2}zvetseni.txt","w")
-
-    while True:
-        pismeno = f.read(1).upper()
-        if pismeno == "":
-            break
-        fB.write(pismeno)
         
 
     f.close()
     fB.close()
 
-def menu():
-    soubor = input("Poprosím název souboru: ")
-    print("""
-    1) - převod na malá písmena
-    2) - převod na velké písmena
-    3) - změna znaku
-    4) - generátor nádhodného textu
-    5) - počitadlo písmen
-    Esc - Konec
-    """)
-    
-    try:
-        cinnost = int(input("Napiš co chce udělat: "))
-    except:
-        print("Tohle nepůjde :( !")
-        exit(1)
-    
-    if cinnost == 1:
-        zmenseni(soubor)
-    elif cinnost == 2:
-        zvetseni(soubor)
-    elif cinnost == 3:
-        znakA = input("Zadej znak který chceš změnit: ")
-        znakB = input(f"Zadej znak na který se bude {znakA} měnit: ")
-        if znakA == "" or znakB == "":
-            nahrada(soubor)
-        else:
-            nahrada(soubor, znakA , znakB)
-    elif cinnost == 4:
-        try:
-            minvet = int(input("Minimální počet vět: "))
-            maxvet = int(input("Zadej Maximální počet vět: "))
-        except:
-            print("Budeš muset zadat celé číslo jinak to nepujde")
-            exit(1)
-        generator(soubor, minvet, maxvet)
-    elif cinnost == 5:
-        pocitacka(soubor)
-    else:
-        exit(0)
-
-while True:
-    menu()
-    try:
-        pokracovat = int(input("Chceš pokračovat dál?(1/0): "))
-    except:
-        break
-    if pokracovat == 1:
-        menu()
-    else:
-        break 
