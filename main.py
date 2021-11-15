@@ -20,7 +20,7 @@ def menu():
     try:
         cinnost = int(input("Napiš co chce udělat: "))
     except:
-        print("Tohle nepůjde :( !")
+        print("Tohle nepůjde!")
         exit(1)
     
     if cinnost == 1:
