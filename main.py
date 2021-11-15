@@ -156,6 +156,3 @@ def zmenseni(soubor):
 
         
 
-    f.close()
-    fB.close()
-
