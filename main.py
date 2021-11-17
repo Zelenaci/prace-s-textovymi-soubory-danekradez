@@ -10,10 +10,9 @@ def menu():
     soubor = input("Poprosím název souboru: ")
     print("""
     1) - převod na malá písmena
-    2) - převod na velké písmena
-    3) - změna znaku
-    4) - generátor nádhodného textu
-    5) - počitadlo písmen
+    2) - změna znaku
+    3) - generátor nádhodného textu
+    4) - počitadlo písmen
     Esc - Konec
     """)
     
@@ -26,15 +25,13 @@ def menu():
     if cinnost == 1:
         zmenseni(soubor)
     elif cinnost == 2:
-        zvetseni(soubor)
-    elif cinnost == 3:
         znakA = input("Zadej znak který chceš změnit: ")
         znakB = input(f"Zadej znak na který se bude {znakA} měnit: ")
         if znakA == "" or znakB == "":
             nahrada(soubor)
         else:
             nahrada(soubor, znakA , znakB)
-    elif cinnost == 4:
+    elif cinnost == 3:
         try:
             minvet = int(input("Minimální počet vět: "))
             maxvet = int(input("Zadej Maximální počet vět: "))
@@ -42,7 +39,7 @@ def menu():
             print("Budeš muset zadat celé číslo jinak to nepujde")
             exit(1)
         generator(soubor, minvet, maxvet)
-    elif cinnost == 5:
+    elif cinnost == 4:
         pocitacka(soubor)
     else:
         exit(0)
